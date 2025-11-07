@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns="http://javafx.com/javafx" 
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.rfn.fileencryptor.controller.SettingsController"
+      styleClass="settings-dialog"
+      prefWidth="500" prefHeight="400">
+
+    <!-- Modern Header with Icon -->
+    <HBox styleClass="settings-header" alignment="CENTER_LEFT" spacing="15">
+        <padding>
+            <Insets top="20" right="30" bottom="20" left="30"/>
+        </padding>
+        
+        <VBox spacing="5">
+            <Label text="Security Settings" styleClass="settings-title"/>
+            <Label text="Manage your passwords and security preferences" 
+                   styleClass="settings-subtitle"/>
+        </VBox>
+    </HBox>
+
+    <!-- Main Content -->
+    <VBox styleClass="settings-content">
+        <padding>
+            <Insets top="30" right="30" bottom="30" left="30"/>
+        </padding>
+
+        <!-- Password Management Section -->
+        <VBox styleClass="settings-section" spacing="20">
+            <Label text="Password Management" styleClass="section-title"/>
+            
+            <!-- Login Password Button -->
+            <HBox styleClass="settings-option" spacing="15">
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Login Password" styleClass="option-title"/>
+                    <Label text="Change the password you use to log into the application" 
+                           styleClass="option-description"/>
+                </VBox>
+                <Button text="Change" onAction="#handleChangeLoginPassword" 
+                        styleClass="settings-action-button"/>
+            </HBox>
+            
+            <Separator/>
+            
+            <!-- Encryption Password Button -->
+            <HBox styleClass="settings-option" spacing="15">
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Encryption Password" styleClass="option-title"/>
+                    <Label text="Update the password used to encrypt and decrypt your files" 
+                           styleClass="option-description"/>
+                </VBox>
+                <Button text="Change" onAction="#handleChangeEncryptionPassword" 
+                        styleClass="settings-action-button"/>
+            </HBox>
+        </VBox>
+
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <!-- Footer -->
+        <HBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="10" bottom="20"/>
+            </padding>
+            <Button text="Close" onAction="#handleClose" styleClass="settings-close-button"/>
+        </HBox>
+    </VBox>
+
+</VBox>

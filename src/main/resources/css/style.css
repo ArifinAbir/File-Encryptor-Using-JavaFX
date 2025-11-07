@@ -1,0 +1,314 @@
+/* Root styling */
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #f5f5f5;
+}
+
+/* Title styling */
+.title {
+    -fx-text-fill: #2196F3;
+    -fx-font-weight: bold;
+}
+
+/* Button styling */
+.button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: #1976D2;
+}
+
+.button:pressed {
+    -fx-background-color: #0D47A1;
+}
+
+.button:disabled {
+    -fx-background-color: #BDBDBD;
+    -fx-opacity: 0.6;
+}
+
+/* TextField and PasswordField styling */
+.text-field, .password-field {
+    -fx-background-color: white;
+    -fx-border-color: #BDBDBD;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+    -fx-padding: 8;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #2196F3;
+    -fx-border-width: 2;
+}
+
+/* ComboBox styling */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #BDBDBD;
+    -fx-border-radius: 3;
+}
+
+/* DatePicker styling */
+.date-picker {
+    -fx-background-color: white;
+}
+
+/* CheckBox styling */
+.check-box {
+    -fx-text-fill: #424242;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #2196F3;
+}
+
+/* Hyperlink styling */
+.hyperlink {
+    -fx-text-fill: #2196F3;
+    -fx-underline: false;
+    -fx-cursor: hand;
+}
+
+.hyperlink:hover {
+    -fx-text-fill: #1976D2;
+    -fx-underline: true;
+}
+
+/* TableView styling */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #E0E0E0;
+}
+
+.table-view .column-header {
+    -fx-background-color: #F5F5F5;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #E3F2FD;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+}
+
+/* Cinematic progress bar base styling */
+.progress-bar {
+    -fx-background-color: transparent;
+    -fx-background-radius: 20;
+    -fx-padding: 6 0 6 0;
+}
+
+.progress-bar .track {
+    -fx-background-color: rgba(14, 20, 36, 0.88);
+    -fx-background-radius: 20;
+    -fx-background-insets: 0;
+    -fx-border-color: rgba(96, 140, 255, 0.25);
+    -fx-border-width: 1.2;
+    -fx-border-radius: 20;
+    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.7), 10, 0.55, 0, 2);
+}
+
+.progress-bar .bar {
+    -fx-background-color: linear-gradient(to right, rgba(0, 153, 255, 0.6), rgba(0, 212, 255, 0.95));
+    -fx-background-radius: 18;
+    -fx-background-insets: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 14, 0.45, 0, 2);
+}
+
+/* Gorgeous themed bars (color accents picked up by ProgressStyler) */
+.gorgeous-bar.progress-bar .bar {
+    -fx-background-color: linear-gradient(to right, rgba(0, 153, 255, 0.75), rgba(0, 212, 255, 1.0));
+}
+.gorgeous-bar-green.progress-bar .bar {
+    -fx-background-color: linear-gradient(to right, rgba(0, 200, 83, 0.85), rgba(76, 230, 135, 1.0));
+}
+.gorgeous-bar-blue.progress-bar .bar {
+    -fx-background-color: linear-gradient(to right, rgba(0, 153, 255, 0.75), rgba(0, 212, 255, 1.0));
+}
+
+/* Progress label styling */
+.progress-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #d8e9ff;
+    -fx-font-weight: bold;
+    -fx-padding: 4 0 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 8, 0.4, 0, 1);
+}
+
+/* Progress box styling */
+.progress-box {
+    -fx-spacing: 10;
+    -fx-padding: 16;
+    -fx-background-color: linear-gradient(to bottom right, rgba(10, 14, 28, 0.92), rgba(4, 7, 16, 0.94));
+    -fx-background-radius: 22;
+    -fx-border-radius: 22;
+    -fx-border-color: rgba(90, 140, 255, 0.35);
+    -fx-border-width: 1.4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.65), 18, 0.45, 0, 6);
+}
+
+.progress-box .label {
+    -fx-text-fill: #eff7ff;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 10, 0.45, 0, 1);
+}
+
+/* Label styling */
+.label {
+    -fx-text-fill: #424242;
+}
+
+/* Settings Dialog Modern Styling */
+.settings-dialog {
+    -fx-background-color: #FAFAFA;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 2);
+}
+
+.settings-header {
+    -fx-background-color: linear-gradient(to right, #2196F3, #1976D2);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 4, 0, 0, 2);
+}
+
+.settings-title {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+
+.settings-subtitle {
+    -fx-text-fill: #E3F2FD;
+    -fx-font-size: 14px;
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+
+.settings-content {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0, 0, 1);
+}
+
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1976D2;
+    -fx-padding: 0 0 10 0;
+}
+
+.settings-section {
+    -fx-spacing: 15;
+}
+
+.settings-option {
+    -fx-padding: 15;
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #E0E0E0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 4, 0, 0, 1);
+}
+
+.settings-option:hover {
+    -fx-background-color: #F5F5F5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 6, 0, 0, 2);
+}
+
+.option-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #424242;
+}
+
+.option-description {
+    -fx-font-size: 13px;
+    -fx-text-fill: #757575;
+    -fx-wrap-text: true;
+}
+
+.settings-action-button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 20;
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+    -fx-min-width: 100;
+}
+
+.settings-action-button:hover {
+    -fx-background-color: #1976D2;
+    -fx-effect: dropshadow(gaussian, rgba(33, 150, 243, 0.3), 6, 0, 0, 2);
+}
+
+.settings-action-button:pressed {
+    -fx-background-color: #1565C0;
+}
+
+.settings-close-button {
+    -fx-background-color: #E0E0E0;
+    -fx-text-fill: #424242;
+    -fx-font-weight: bold;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 10 35;
+    -fx-cursor: hand;
+    -fx-min-width: 120;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 4, 0, 0, 1);
+}
+
+.settings-close-button:hover {
+    -fx-background-color: #BDBDBD;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 6, 0, 0, 2);
+}
+
+.settings-close-button:pressed {
+    -fx-background-color: #9E9E9E;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 2, 0, 0, 1);
+}
+
+/* Custom Separator Style */
+.separator {
+    -fx-padding: 15 0;
+}
+
+.separator .line {
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 0.5;
+}
+
+/* Separator styling */
+.separator {
+    -fx-background-color: #E0E0E0;
+}
+
+/* ScrollPane styling */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: white;
+}
+
+/* TextArea styling */
+.text-area {
+    -fx-background-color: white;
+    -fx-border-color: #BDBDBD;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+.text-area .content {
+    -fx-background-color: white;
+    -fx-padding: 10;
+}

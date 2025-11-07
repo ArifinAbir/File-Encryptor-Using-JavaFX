@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <property name="LOG_PATTERN" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n"/>
+
+  <!-- Silence chatty libraries -->
+  <logger name="com.zaxxer.hikari" level="WARN"/>
+  <logger name="org.hibernate" level="WARN"/>
+  <logger name="oracle" level="WARN"/>
+
+  <!-- Default log level for app -->
+  <root level="INFO">
+    <appender-ref ref="STDOUT"/>
+  </root>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${LOG_PATTERN}</pattern>
+    </encoder>
+  </appender>
+</configuration>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.rfn.fileencryptor.controller.SignupController"
+            fitToWidth="true"
+            prefWidth="500" prefHeight="600">
+
+    <VBox alignment="CENTER" spacing="12" style="-fx-padding: 20;">
+
+        <Label text="Create Account">
+            <font>
+                <Font name="System Bold" size="22"/>
+            </font>
+        </Label>
+
+        <Separator prefWidth="400"/>
+
+        <Label text="Account Information">
+            <font>
+                <Font name="System Bold" size="14"/>
+            </font>
+        </Label>
+
+        <Label text="Username:*"/>
+        <TextField fx:id="usernameField" promptText="3-50 characters" prefWidth="350"/>
+
+        <Label text="Password:*"/>
+        <PasswordField fx:id="passwordField" promptText="At least 8 characters" prefWidth="350"/>
+        <Label fx:id="passwordStrengthLabel" text="Password Strength: -" style="-fx-font-size: 11px;"/>
+
+        <Label text="Confirm Password:*"/>
+        <PasswordField fx:id="confirmPasswordField" promptText="Re-enter password" prefWidth="350"/>
+
+        <Label text="Email (Optional):"/>
+        <TextField fx:id="emailField" promptText="your@email.com" prefWidth="350"/>
+
+        <Separator prefWidth="400"/>
+
+        <Label text="Security Question (For Password Recovery)">
+            <font>
+                <Font name="System Bold" size="14"/>
+            </font>
+        </Label>
+
+        <Label text="Question:*"/>
+        <TextField fx:id="question1Field" promptText="e.g., What is your favorite color?" prefWidth="350"/>
+
+        <Label text="Answer:*"/>
+        <TextField fx:id="answer1Field" promptText="Your answer" prefWidth="350"/>
+
+        <Separator prefWidth="400"/>
+
+        <Label fx:id="errorLabel" textFill="red" wrapText="true" prefWidth="350" visible="false"/>
+
+        <Button fx:id="signupButton" text="Create Account" onAction="#handleSignup" prefWidth="350" prefHeight="35" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+        <HBox alignment="CENTER" spacing="5">
+            <Label text="Already have an account? "/>
+            <Hyperlink fx:id="loginLink" text="Login" onAction="#handleBackToLogin"/>
+        </HBox>
+
+    </VBox>
+
+</ScrollPane>

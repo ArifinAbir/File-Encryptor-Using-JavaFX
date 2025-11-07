@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.rfn.fileencryptor.controller.HistoryController"
+      spacing="15"
+      prefWidth="900" prefHeight="600">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Title -->
+    <Label text="Audit History">
+        <font>
+            <Font name="System Bold" size="20"/>
+        </font>
+    </Label>
+
+    <Separator/>
+
+    <!-- Filters -->
+    <HBox spacing="15" alignment="CENTER_LEFT">
+
+        <VBox spacing="5">
+            <Label text="Start Date:"/>
+            <DatePicker fx:id="startDatePicker" prefWidth="150"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="End Date:"/>
+            <DatePicker fx:id="endDatePicker" prefWidth="150"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Operation Type:"/>
+            <ComboBox fx:id="operationTypeCombo" prefWidth="150"/>
+        </VBox>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <Button fx:id="filterButton" text="Apply Filter"
+                onAction="#handleFilter"
+                prefWidth="120">
+            <VBox.margin>
+                <Insets top="20"/>
+            </VBox.margin>
+        </Button>
+
+        <Button fx:id="resetButton" text="Reset"
+                onAction="#handleReset"
+                prefWidth="80">
+            <VBox.margin>
+                <Insets top="20"/>
+            </VBox.margin>
+        </Button>
+
+    </HBox>
+
+    <Separator/>
+
+    <!-- History Table -->
+    <TableView fx:id="historyTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="timestampColumn" text="Timestamp"
+                         prefWidth="180"/>
+            <TableColumn fx:id="operationColumn" text="Operation"
+                         prefWidth="120"/>
+            <TableColumn fx:id="statusColumn" text="Status"
+                         prefWidth="100"/>
+            <TableColumn fx:id="fileSizeColumn" text="File Size"
+                         prefWidth="100"/>
+            <TableColumn fx:id="durationColumn" text="Duration"
+                         prefWidth="120"/>
+        </columns>
+        <placeholder>
+            <Label text="No audit logs found for the selected period"/>
+        </placeholder>
+    </TableView>
+
+    <!-- Close Button -->
+    <HBox alignment="CENTER_RIGHT">
+        <Button fx:id="closeButton" text="Close"
+                onAction="#handleClose"
+                prefWidth="100"/>
+    </HBox>
+
+</VBox>

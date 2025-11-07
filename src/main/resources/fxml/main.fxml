@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.rfn.fileencryptor.controller.MainController"
+            prefWidth="900" prefHeight="600">
+
+    <!-- Top Bar -->
+    <top>
+        <VBox>
+            <HBox alignment="CENTER_LEFT" spacing="20"
+                  style="-fx-background-color: #2196F3; -fx-padding: 15;">
+                <Label fx:id="welcomeLabel" text="Welcome, User!"
+                       textFill="white">
+                    <font>
+                        <Font name="System Bold" size="18"/>
+                    </font>
+                </Label>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="settingsButton" text="Settings"
+                        onAction="#handleOpenSettings"
+                        style="-fx-background-color: white; -fx-text-fill: #2196F3;"/>
+                <Button fx:id="logoutButton" text="Logout"
+                        onAction="#handleLogout"
+                        style="-fx-background-color: white; -fx-text-fill: #2196F3;">
+                    <HBox.margin>
+                        <Insets left="10"/>
+                    </HBox.margin>
+                </Button>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Center Content -->
+    <center>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- Action Buttons -->
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Button fx:id="encryptButton" text="Encrypt File"
+                        onAction="#handleEncrypt"
+                        prefWidth="150" prefHeight="40">
+                    <font>
+                        <Font name="System Bold" size="14"/>
+                    </font>
+                </Button>
+
+                <Button fx:id="decryptButton" text="Decrypt File"
+                        onAction="#handleDecrypt"
+                        prefWidth="150" prefHeight="40">
+                    <font>
+                        <Font name="System Bold" size="14"/>
+                    </font>
+                </Button>
+
+                <CheckBox fx:id="compressCheckBox" text="Compress before encrypting"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Button fx:id="viewHistoryButton" text="View History"
+                        onAction="#handleViewHistory"
+                        prefWidth="120"/>
+            </HBox>
+
+            <VBox spacing="10" alignment="CENTER_LEFT"
+                  style="-fx-background-color: linear-gradient(to right, #f7faff, #eef3ff); -fx-padding: 14; -fx-background-radius: 12;">
+                <VBox.margin>
+                    <Insets top="8"/>
+                </VBox.margin>
+                <Label text="Backup to Cloud"
+                       style="-fx-font-weight: bold; -fx-font-size: 16; -fx-text-fill: #1a237e;"/>
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <Label text="Cloud options:"
+                           style="-fx-font-weight: bold; -fx-text-fill: #3949ab;"/>
+                    <Label text="Google Drive"
+                           style="-fx-background-color: #3949ab; -fx-text-fill: white; -fx-padding: 4 10; -fx-background-radius: 999;"/>
+                </HBox>
+                <Label fx:id="driveAccountLabel" text="Not signed in"
+                       style="-fx-text-fill: #1a237e; -fx-font-size: 12;"/>
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <Button fx:id="backupDriveButton" text="Backup now"
+                            onAction="#handleBackupToGoogleDrive"
+                            prefWidth="150" prefHeight="36"/>
+                    <Button fx:id="restoreDriveButton" text="Restore files"
+                            onAction="#handleRestoreFromGoogleDrive"
+                            prefWidth="150" prefHeight="36"/>
+                    <CheckBox fx:id="autoBackupCheckBox" text="Auto backup all"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="googleSignOutButton" text="Sign out"
+                            onAction="#handleGoogleSignOut"
+                            prefWidth="120"/>
+                </HBox>
+            </VBox>
+
+            <!-- Progress Bar -->
+            <VBox spacing="5" fx:id="progressBox" visible="false">
+                <Label text="Current File Progress:"/>
+                <ProgressBar fx:id="progressBar" prefWidth="Infinity"
+                             prefHeight="12"/>
+                <Label fx:id="progressLabel" text=""/>
+                <Button fx:id="cancelButton" text="Cancel" onAction="#handleCancelOperation" visible="false" />
+                <Region prefHeight="6"/>
+                <Label text="Overall Progress:"/>
+                <ProgressBar fx:id="overallProgressBar" prefWidth="Infinity"
+                             prefHeight="12"/>
+                <Label fx:id="overallProgressLabel" text=""/>
+            </VBox>
+
+            <Separator/>
+
+            <!-- Search -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Search Files:"/>
+                <TextField fx:id="searchField" promptText="Search by filename..."
+                           prefWidth="300"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="Sort by:"/>
+                <ComboBox fx:id="sortCombo" prefWidth="140"/>
+                <ToggleButton fx:id="sortDirectionToggle" text="Asc"/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="Decrypt to:"/>
+                <Label fx:id="decryptDirLabel" text="(default)" prefWidth="200"/>
+                <Button fx:id="changeDecryptButton" text="Change..." onAction="#handleChangeDecrypt"/>
+            </HBox>
+
+            <!-- Files Table -->
+            <TableView fx:id="filesTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="selectColumn" text="" prefWidth="50">
+                        <graphic>
+                            <CheckBox fx:id="selectAllCheckBox">
+                                <tooltip>
+                                    <Tooltip text="Select/Deselect All Files"/>
+                                </tooltip>
+                            </CheckBox>
+                        </graphic>
+                    </TableColumn>
+                    <TableColumn fx:id="filenameColumn" text="Filename"
+                                 prefWidth="300"/>
+                    <TableColumn fx:id="typeColumn" text="Type"
+                                 prefWidth="80"/>
+                    <TableColumn fx:id="sizeColumn" text="Size"
+                                 prefWidth="100"/>
+                    <TableColumn fx:id="dateColumn" text="Created At"
+                                 prefWidth="180"/>
+                    <TableColumn fx:id="compressedColumn" text="Compressed"
+                                 prefWidth="100"/>
+                </columns>
+                <placeholder>
+                    <Label text="No encrypted files yet. Encrypt your first file!"/>
+                </placeholder>
+            </TableView>
+
+        </VBox>
+    </center>
+
+
+</BorderPane>

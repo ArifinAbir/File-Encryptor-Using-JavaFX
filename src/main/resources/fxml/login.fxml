@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.rfn.fileencryptor.controller.LoginController"
+      prefWidth="400" prefHeight="500">
+
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+
+    <!-- Title -->
+    <Label text="File Encryptor" styleClass="title">
+        <font>
+            <Font name="System Bold" size="28"/>
+        </font>
+    </Label>
+
+    <Label text="Secure File Encryption System">
+        <font>
+            <Font size="14"/>
+        </font>
+    </Label>
+
+    <Region prefHeight="20"/>
+
+    <!-- Login Form -->
+    <VBox spacing="15" alignment="CENTER">
+
+        <Label text="Login to Your Account">
+            <font>
+                <Font name="System Bold" size="16"/>
+            </font>
+        </Label>
+
+        <!-- Username -->
+        <VBox spacing="5">
+            <Label text="Username:"/>
+            <TextField fx:id="usernameField" promptText="Enter username"
+                       prefWidth="300"/>
+        </VBox>
+
+        <!-- Password -->
+        <VBox spacing="5">
+            <Label text="Password:"/>
+            <PasswordField fx:id="passwordField" promptText="Enter password"
+                           prefWidth="300"/>
+        </VBox>
+
+        <!-- Error Label -->
+        <Label fx:id="errorLabel" textFill="red" wrapText="true"
+               prefWidth="300" visible="false"/>
+
+        <!-- Login Button -->
+        <Button fx:id="loginButton" text="Login" onAction="#handleLogin"
+                prefWidth="300" prefHeight="40" defaultButton="true">
+            <font>
+                <Font name="System Bold" size="14"/>
+            </font>
+        </Button>
+
+        <!-- Links -->
+        <HBox spacing="10" alignment="CENTER">
+            <Hyperlink fx:id="forgotPasswordLink" text="Forgot Password?"
+                       onAction="#handleForgotPassword"/>
+            <Label text="|"/>
+            <Hyperlink fx:id="signupLink" text="Sign Up"
+                       onAction="#handleSignup"/>
+        </HBox>
+
+    </VBox>
+
+</VBox>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.rfn.fileencryptor.ui.ProgressWindowController"
+            prefWidth="520" prefHeight="280">
+    <padding>
+        <Insets top="18" right="22" bottom="18" left="22"/>
+    </padding>
+    <center>
+        <VBox spacing="18">
+            <Label fx:id="operationTitleLabel"
+                   text="Processing..."
+                   wrapText="true"
+                   style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+            <VBox spacing="8">
+                <Label text="Current Task"
+                       style="-fx-font-size: 13; -fx-font-weight: semibold;"/>
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <ProgressBar fx:id="currentTaskProgressBar"
+                                 prefHeight="16"
+                                 HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="currentTaskPercentageLabel"
+                           text="0%"
+                           minWidth="55"
+                           alignment="CENTER_RIGHT"
+                           style="-fx-font-size: 13; -fx-font-weight: bold;"/>
+                    <Button fx:id="cancelButton"
+                            text="Cancel"
+                            minWidth="90"
+                            onAction="#handleCancel"/>
+                </HBox>
+                <Label fx:id="currentTaskDetailLabel"
+                       text="Waiting to start..."
+                       wrapText="true"
+                       style="-fx-text-fill: #263238;"/>
+            </VBox>
+
+            <VBox spacing="8">
+                <Label text="Overall Progress"
+                       style="-fx-font-size: 13; -fx-font-weight: semibold;"/>
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <ProgressBar fx:id="overallProgressBar"
+                                 prefHeight="16"
+                                 HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="overallProgressPercentageLabel"
+                           text="0%"
+                           minWidth="55"
+                           alignment="CENTER_RIGHT"
+                           style="-fx-font-size: 13; -fx-font-weight: bold;"/>
+                </HBox>
+                <Label fx:id="overallDetailLabel"
+                       text="0 of 0 completed"
+                       wrapText="true"
+                       style="-fx-text-fill: #546e7a;"/>
+            </VBox>
+
+            <Label fx:id="statusLabel"
+                   text=""
+                   wrapText="true"
+                   style="-fx-font-size: 12; -fx-text-fill: #546e7a;"/>
+        </VBox>
+    </center>
+</BorderPane>
